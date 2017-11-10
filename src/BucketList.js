@@ -45,24 +45,25 @@ class BucketList extends Component {
         <header className="header">
           <h1 className="title">Bucket List</h1>
         </header>
-        <div>
+        <div className='list-form'>
           <form>
-            <FormGroup controlId="formBasicText" validationState={this.state.validAdventure}>
+            <FormGroup controlId="addAdventuresForm" validationState={this.state.validAdventure}>
               <FormControl
                 type="text"
                 value={this.state.newAdventure}
                 placeholder="Add Adventure"
                 onChange={this.handleChange}
+                bsSize="large"
               />
               <FormControl.Feedback />
               {this.state.validAdventure === 'error' ? <HelpBlock>Please add an adventure to your bucket list.</HelpBlock> : ''}
-              <Button onClick={this.handleSubmit}>Add to Bucket List</Button>
+              <Button onClick={this.handleSubmit} block>Add to Bucket List</Button>
             </FormGroup>
           </form>
           <ol>
             {this.state.adventures.length > 0 ?
               this.renderAdventures() :
-              <p>Add some adventures to your bucket list!</p>
+              <p>You don't seem to have any adventures on your bucket list. Add some!</p>
             }
           </ol>
         </div>
